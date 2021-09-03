@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { css } from "@emotion/css";
 import Skill from "../components/Skill";
-import { axiosInstance } from "../../config";
+import { axiosInstance } from "../config";
 const Skills = () => {
   const [posts, setPosts] = useState([]);
 
