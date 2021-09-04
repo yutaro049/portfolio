@@ -2,7 +2,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Skills from "./pages/Skills";
 import { css } from "@emotion/css";
-import { axiosInstance } from "../config";
+import { axiosInstance } from "../src/config";
 import { useState, useEffect } from "react";
 
 import {
