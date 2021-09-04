@@ -18,7 +18,7 @@ const Skills = ({ posts }) => {
   return (
     <div className={classes.skills}>
       <div className={classes.title}>Skills</div>
-      {(posts || []).map((post) => (
+      {posts.map((post) => (
         <Skill post={post} />
       ))}
     </div>

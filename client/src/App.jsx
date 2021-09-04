@@ -5,12 +5,7 @@ import { css } from "@emotion/css";
 import { axiosInstance } from "../src/config";
 import { useState, useEffect } from "react";
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  BrowserRouter,
-} from "react-router-dom";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
 import Header from "./components/Header";
 const App = () => {
   const [posts, setPosts] = useState([]);
@@ -24,6 +19,7 @@ const App = () => {
     const fetchPosts = async () => {
       const res = await axiosInstance.get("/posts");
       setPosts(res.data);
+      console.log(res.date);
     };
     fetchPosts();
   }, []);
