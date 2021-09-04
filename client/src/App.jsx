@@ -2,6 +2,9 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Skills from "./pages/Skills";
 import { css } from "@emotion/css";
+import { axiosInstance } from "../config";
+import { useState, useEffect } from "react";
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,10 +13,20 @@ import {
 } from "react-router-dom";
 import Header from "./components/Header";
 const App = () => {
+  const [posts, setPosts] = useState([]);
+
   const app = css`
     max-width: 1000px;
     margin: 0 auto;
   `;
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const res = await axiosInstance.get("/posts");
+      setPosts(res.data);
+    };
+    fetchPosts();
+  }, []);
 
   return (
     <BrowserRouter>
@@ -27,7 +40,7 @@ const App = () => {
             <About />
           </Route>
           <Route exact path="/skills">
-            <Skills />
+            <Skills posts={posts} />
           </Route>
         </Switch>
       </div>

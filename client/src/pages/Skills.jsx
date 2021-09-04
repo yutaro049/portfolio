@@ -1,10 +1,6 @@
-import { useEffect, useState } from "react";
 import { css } from "@emotion/css";
 import Skill from "../components/Skill";
-import { axiosInstance } from "../config";
-const Skills = () => {
-  const [posts, setPosts] = useState([]);
-
+const Skills = ({ posts }) => {
   const classes = {
     skills: css`
       margin: 30px auto 0;
@@ -18,14 +14,6 @@ const Skills = () => {
       width: 100%;
     `,
   };
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const res = await axiosInstance.get("/posts");
-      setPosts(res.data);
-    };
-    fetchPosts();
-  }, []);
 
   return (
     <div className={classes.skills}>
