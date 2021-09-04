@@ -36,6 +36,6 @@ app.get("*", (req, res) => {
 app.use(express.json());
 app.use("/api/posts", postRouter);
 
-app.listen(process.env.PORT || "4000", () => {
+app.listen(process.env.PORT || 5000, () => {
   console.log("backend is running");
 });

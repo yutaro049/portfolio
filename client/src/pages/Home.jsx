@@ -1,11 +1,9 @@
-import Header from "../components/Header";
-import About from "./About";
 import Skills from "./Skills";
 import css from "@emotion/css";
-const Home = () => {
+const Home = ({ posts }) => {
   return (
     <div>
-      <Skills />
+      <Skills posts={posts} />
     </div>
   );
 };
