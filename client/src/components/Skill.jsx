@@ -19,7 +19,8 @@ const Skill = ({ post, isMobile }) => {
     `,
 
     title: css`
-      margin-left: 5px;
+      margin-left: 15px;
+
       a {
         cursor: pointer;
         color: black;
@@ -30,7 +31,8 @@ const Skill = ({ post, isMobile }) => {
       }
     `,
     date: css`
-      margin-right: 5px;
+      margin-right: 15px;
+
       text-align: right;
     `,
   };

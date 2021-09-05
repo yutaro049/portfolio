@@ -13,7 +13,7 @@ const Footer = ({ isMobile }) => {
     nav: css`
       display: flex;
       justify-content: left;
-      margin: 60px 0 30px 0;
+      margin: 60px 0 20px 0;
       padding-left: 30px;
       list-style: none;
 
