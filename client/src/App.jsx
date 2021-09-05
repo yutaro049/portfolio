@@ -1,12 +1,13 @@
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Skills from "./pages/Skills";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import { css } from "@emotion/css";
 import { axiosInstance } from "../src/config";
 import { useState, useEffect } from "react";
 
 import { Switch, Route, BrowserRouter } from "react-router-dom";
-import Header from "./components/Header";
 import { useMediaQuery } from "react-responsive";
 
 const App = () => {
@@ -41,6 +42,7 @@ const App = () => {
             <Skills posts={posts} isMobile={isMobile} />
           </Route>
         </Switch>
+        <Footer isMobile={isMobile} />
       </div>
     </BrowserRouter>
   );
