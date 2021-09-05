@@ -1,17 +1,18 @@
 import { css } from "@emotion/css";
 import { Link } from "react-router-dom";
-const Header = () => {
+import { useLocation } from "react-router";
+const Header = ({ isMobile }) => {
+  const location = useLocation();
+  const pathName = location.pathname.replace("/", "");
+
   const classes = {
     header: css`
-      height: 150px;
       width: 100%;
-      align-items: center;
-      margin-top: 20px;
     `,
     title: css`
       box-shadow: 7px 7px 5px 1px rgba(10, 10, 10, 0.06);
       background-color: #fcf4ed;
-      height: 70%;
+      height: 80px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -27,36 +28,63 @@ const Header = () => {
     `,
     nav: css`
       display: flex;
-      float: right;
+      justify-content: right;
       margin-top: 10px;
-      padding-right: 20px;
+      padding-right: 30px;
       list-style: none;
+
       li {
-        font-size: 20px;
+        font-size: 25px;
         margin-left: 20px;
         cursor: pointer;
         padding: 0;
         :hover {
-          border-bottom: 1px solid;
+          text-decoration: underline;
         }
+      }
+    `,
+  };
+  const classesM = {
+    left: css`
+      padding-left: 20px;
+      font-size: 20px;
+    `,
+    nav: css`
+      list-style: none;
+      margin-top: 7px;
+      display: flex;
+      li {
+        width: 50%;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 300;
+        margin: auto 0;
+        cursor: pointer;
+
+        :hover {
+          text-decoration: underline;
+        }
+      }
+      p {
+        padding: 12px 0;
       }
     `,
   };
 
   const navList = ["about", "skills"];
+  const chooseClasses = isMobile ? classesM : classes;
   return (
     <div className={classes.header}>
       <div className={classes.title}>
         <Link className="link" to="/">
-          <div className={classes.left}>YutoNakamura</div>
+          <div className={chooseClasses.left}>YutoNakamura</div>
         </Link>
-        <div className={classes.right}></div>
       </div>
-      <ul className={classes.nav}>
+      <ul className={chooseClasses.nav}>
         {navList.map((i) => (
-          <li key={i}>
+          <li key={i.toString()}>
             <Link className="link" to={`/${i}`}>
-              <a>{i}</a>
+              <p style={i === pathName ? { opacity: 0.5 } : {}}>{i}</p>
             </Link>
           </li>
         ))}

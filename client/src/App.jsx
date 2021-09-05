@@ -7,11 +7,13 @@ import { useState, useEffect } from "react";
 
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import Header from "./components/Header";
+import { useMediaQuery } from "react-responsive";
+
 const App = () => {
   const [posts, setPosts] = useState([]);
+  const isMobile = useMediaQuery({ query: "(max-width: 767px)" });
 
   const app = css`
-    max-width: 1000px;
     margin: 0 auto;
   `;
 
@@ -27,16 +29,16 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className={app}>
-        <Header />
+        <Header isMobile={isMobile} />
         <Switch>
           <Route exact path="/">
-            <Home posts={posts} />
+            <Home posts={posts} isMobile={isMobile} />
           </Route>
           <Route exact path="/about">
-            <About />
+            <About isMobile={isMobile} />
           </Route>
           <Route exact path="/skills">
-            <Skills posts={posts} />
+            <Skills posts={posts} isMobile={isMobile} />
           </Route>
         </Switch>
       </div>

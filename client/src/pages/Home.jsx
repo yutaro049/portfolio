@@ -1,9 +1,9 @@
 import Skills from "./Skills";
 import css from "@emotion/css";
-const Home = ({ posts }) => {
+const Home = ({ posts, isMobile }) => {
   return (
     <div>
-      <Skills posts={posts} />
+      <Skills posts={posts} isMobile={isMobile} />
     </div>
   );
 };
