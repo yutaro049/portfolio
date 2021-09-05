@@ -35,9 +35,6 @@ const Skills = ({ posts, isMobile }) => {
       {posts.map((post) => (
         <Skill post={post} isMobile={isMobile} />
       ))}
-      <Skill isMobile={isMobile} />
-      <Skill />
-      <Skill />
     </div>
   );
 };
