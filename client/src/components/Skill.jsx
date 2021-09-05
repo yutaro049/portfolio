@@ -46,6 +46,7 @@ const Skill = ({ post, isMobile }) => {
 
     desc: css`
       font-size: 10px;
+      margin-bottom: 10px;
     `,
   };
 

@@ -13,7 +13,7 @@ const Footer = ({ isMobile }) => {
     nav: css`
       display: flex;
       justify-content: left;
-      margin-top: 10px;
+      margin: 60px 0 30px 0;
       padding-left: 30px;
       list-style: none;
 
@@ -31,7 +31,7 @@ const Footer = ({ isMobile }) => {
   const classesM = {
     nav: css`
       list-style: none;
-      margin-top: 7px;
+      margin: 10px 0 10px 0;
       display: flex;
       li {
         width: 50%;
